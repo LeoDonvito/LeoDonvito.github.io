@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Definindo as fontes do Tailwind */
         .font-serif {
             font-family: 'Cormorant Garamond', serif;
         }
@@ -20,18 +19,15 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* Fundo escuro premium (NOVO: com gradiente radial sutil) */
         body {
             background-color: #111111;
-            /* Um gradiente radial muito suave para dar profundidade */
             background-image: radial-gradient(circle at center, #1c1c1c 0%, #111111 70%);
             color: #e0e0e0;
-            overflow-x: hidden; /* Evita scroll horizontal devido às partículas */
+            overflow-x: hidden; 
         }
 
-        /* Cor de destaque (Ouro) */
         .text-gold {
-            color: #D4AF37; /* Um tom de ouro clássico */
+            color: #D4AF37; 
         }
         .bg-gold {
             background-color: #D4AF37;
@@ -40,7 +36,6 @@
             border-color: #D4AF37;
         }
 
-        /* Gradiente de Ouro Metálico para Títulos */
         .text-gold-gradient {
             background: linear-gradient(to right, #D4AF37, #FFD700, #D4AF37);
             -webkit-background-clip: text;
@@ -49,16 +44,13 @@
             text-fill-color: transparent;
         }
 
-        /* Divisor de seção dourado */
         .divider-gold {
-            height: 1px; /* Espessura */
-            width: 150px; /* Largura */
-            margin: 3rem auto; /* Espaçamento (auto centraliza) */
-            /* Gradiente que vai de transparente, para ouro, para transparente */
+            height: 1px; 
+            width: 150px; 
+            margin: 3rem auto; 
             background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.5), transparent);
         }
 
-        /* -- Animações de Scroll (Revelação) -- */
         .reveal-hidden {
             opacity: 0;
             transform: translateY(30px);
@@ -69,7 +61,6 @@
             transform: translateY(0);
         }
 
-        /* Animação extra para a imagem na introdução */
         .reveal-scale-hidden {
             opacity: 0;
             transform: scale(0.8);
@@ -80,7 +71,6 @@
             transform: scale(1);
         }
 
-        /* Animação de Fade-in para o conteúdo principal */
         @keyframes fadeInContent {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -89,12 +79,10 @@
             animation: fadeInContent 1.5s ease-out forwards;
         }
 
-        /* Um brilho sutil na seção do Herói */
         .hero-glow {
             box-shadow: 0 0 100px 50px rgba(212, 175, 55, 0.05);
         }
 
-        /* Estilo do contador */
         .countdown-item {
             display: flex;
             flex-direction: column;
@@ -108,24 +96,23 @@
             backdrop-filter: blur(5px);
         }
         .countdown-number {
-            font-size: 2.5rem; /* 40px */
+            font-size: 2.5rem; 
             font-weight: 700;
             line-height: 1;
         }
         .countdown-label {
-            font-size: 0.875rem; /* 14px */
+            font-size: 0.875rem; 
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: #999;
         }
         
-        /* Estilo do Botão de Música */
         #music-toggle-btn {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            z-index: 50; /* Z-index alto para ficar acima de tudo */
-            background-color: rgba(212, 175, 55, 0.8); /* Ouro com transparência */
+            z-index: 50; 
+            background-color: rgba(212, 175, 55, 0.8); 
             backdrop-filter: blur(5px);
             border-radius: 50%;
             width: 50px;
@@ -135,17 +122,16 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            transform: scale(0); /* Começa oculto */
+            transform: scale(0); 
         }
         #music-toggle-btn.visible {
-             transform: scale(1); /* Fica visível */
+             transform: scale(1); 
         }
         #music-toggle-btn:hover {
             background-color: rgba(212, 175, 55, 1);
-            transform: scale(1.1); /* Efeito de hover */
+            transform: scale(1.1); 
         }
 
-        /* Animação de pulso para o botão de música quando tocando */
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
@@ -161,35 +147,33 @@
             color: #111111;
         }
 
-        /* MELHORIA: Sombra nos cards de informação */
         .info-card {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Sombra padrão */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .info-card:hover {
-            transform: translateY(-5px); /* Levanta um pouco ao passar o mouse */
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.08); /* Sombra mais intensa */
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.08); 
         }
 
-        /* --- PARTÍCULAS DOURADAS SUBINDO --- */
         .particles-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; /* Permite interagir com elementos abaixo */
-            overflow: hidden; /* Garante que as partículas não causem scroll */
+            pointer-events: none; 
+            overflow: hidden; 
             
-            z-index: 0; /* <-- MUDANÇA 1: De -1 para 0 (para ficar acima do fundo do body) */
+            z-index: 0; 
         }
 
         .particle {
             position: absolute;
-            background-color: rgba(212, 175, 55, 0.6); /* Dourado com transparência */
+            background-color: rgba(212, 175, 55, 0.6); 
             border-radius: 50%;
             opacity: 0;
-            animation: floatUp 8s infinite ease-out; /* Animação principal */
+            animation: floatUp 8s infinite ease-out; 
         }
 
         @keyframes floatUp {
@@ -198,18 +182,17 @@
                 opacity: 0;
             }
             10% {
-                opacity: 0.5; /* Aparece mais rápido */
+                opacity: 0.5; 
                 transform: scale(0.5);
             }
             80% {
-                opacity: 0.2; /* Desaparece suavemente */
+                opacity: 0.2; 
             }
             100% {
                 transform: translateY(-100vh) translateX(var(--x-drift, 0px)) scale(var(--s, 1));
                 opacity: 0;
             }
         }
-        /* Ajustes para diferentes tamanhos e atrasos */
         .particle:nth-child(1) { width: 5px; height: 5px; left: 10%; animation-delay: 0s; --s: 0.8; --x-drift: 20px;}
         .particle:nth-child(2) { width: 8px; height: 8px; left: 20%; animation-delay: 1.5s; --s: 1.2; --x-drift: -15px;}
         .particle:nth-child(3) { width: 6px; height: 6px; left: 30%; animation-delay: 3s; --s: 0.9; --x-drift: 10px;}
@@ -384,70 +367,57 @@
     </div>
 
     <script>
-        // --- LÓGICA DE ABERTURA DO CONVITE E MÚSICA ---
         const heroSection = document.getElementById('hero');
         const accessButton = document.getElementById('accessButton');
         const inviteContent = document.getElementById('invite-content');
         const bgMusic = document.getElementById('bg-music');
         
-        // Define o volume padrão da música para 30%
         bgMusic.volume = 0.1;
 
         const musicBtn = document.getElementById('music-toggle-btn');
-        const musicIconPath = document.getElementById('music-path'); // Referência ao path do SVG
+        const musicIconPath = document.getElementById('music-path'); 
         let isPlaying = false;
 
-        // Ícones SVG para Play e Pause
         const iconPlayPath = "M5.25 5.653c0-.856.917-1.362 1.625-.935L17.25 12l-10.375 6.282c-.708.427-1.625-.079-1.625-.935V5.653z";
-        const iconPausePath = "M6 6h4v12H6zm8 0h4v12h-4z"; // Ícone de pause mais simples
+        const iconPausePath = "M6 6h4v12H6zm8 0h4v12h-4z"; 
 
         accessButton.addEventListener('click', () => {
-            // 1. Some com a tela de Herói
             heroSection.style.opacity = '0';
             heroSection.style.pointerEvents = 'none';
             
-            // 2. Mostra o conteúdo do convite
             setTimeout(() => {
                 heroSection.style.display = 'none';
                 inviteContent.classList.remove('hidden');
                 inviteContent.classList.add('fade-in-content');
-            }, 1000); // Sincroniza com a transição de opacidade
+            }, 1000); 
 
-            // 3. Mostra o botão IMEDIATAMENTE
             musicBtn.classList.add('visible');
 
-            // 4. Tenta tocar a música
             bgMusic.play().then(() => {
-                // SUCESSO - Música tocando
                 isPlaying = true;
-                musicIconPath.setAttribute('d', iconPausePath); // Muda para ícone de pause
+                musicIconPath.setAttribute('d', iconPausePath); 
                 musicBtn.classList.add('music-playing-pulse');
             }).catch(e => {
-                // FALHA - Música pausada (autoplay bloqueado)
                 console.warn("Música falhou ao tocar automaticamente:", e);
                 isPlaying = false;
-                musicIconPath.setAttribute('d', iconPlayPath); // Mantém ícone de play
+                musicIconPath.setAttribute('d', iconPlayPath); 
                 musicBtn.classList.remove('music-playing-pulse');
             });
         });
 
         musicBtn.addEventListener('click', () => {
             if (isPlaying) {
-                // Estava tocando -> PAUSAR
                 bgMusic.pause();
-                musicIconPath.setAttribute('d', iconPlayPath); // Muda para ícone de play
-                musicBtn.classList.remove('music-playing-pulse'); // Remove pulso
+                musicIconPath.setAttribute('d', iconPlayPath); 
+                musicBtn.classList.remove('music-playing-pulse'); 
             } else {
-                // Estava pausado -> TOCAR
                 bgMusic.play();
-                musicIconPath.setAttribute('d', iconPausePath); // Muda para ícone de pause
-                musicBtn.classList.add('music-playing-pulse'); // Adiciona pulso
+                musicIconPath.setAttribute('d', iconPausePath); 
+                musicBtn.classList.add('music-playing-pulse'); 
             }
-            isPlaying = !isPlaying; // Inverte o estado
+            isPlaying = !isPlaying; 
         });
 
-        // --- LÓGICA DO CONTADOR REGRESSIVO ---
-        // Corrigido para 27 de novembro de 2025 às 19:00
         const targetDate = new Date("Nov 27, 2025 19:00:00").getTime(); 
         const countdownTimer = setInterval(() => {
             const now = new Date().getTime();
@@ -468,21 +438,17 @@
             document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
         }, 1000);
 
-        // --- LÓGICA DAS ANIMAÇÕES DE SCROLL (Intersection Observer) ---
         const observerOptions = { root: null, threshold: 0.1 };
         const observerCallback = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Adiciona a classe de visibilidade para animações normais
                     if (entry.target.classList.contains('reveal-hidden')) {
                         entry.target.classList.add("reveal-visible");
                     }
-                    // Adiciona a classe de visibilidade para animação de escala
                     if (entry.target.classList.contains('reveal-scale-hidden')) {
                         entry.target.classList.add("reveal-scale-visible");
                     }
                 } else {
-                    // Opcional: re-anima toda vez que rolar (remover se não quiser)
                     if (entry.target.classList.contains('reveal-hidden')) {
                         entry.target.classList.remove("reveal-visible");
                     }
@@ -494,7 +460,6 @@
         };
         const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-        // Observa elementos com 'reveal-hidden' e 'reveal-scale-hidden'
         document.querySelectorAll(".reveal-hidden, .reveal-scale-hidden").forEach(element => observer.observe(element));
 
     </script>
