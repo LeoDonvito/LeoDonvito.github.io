@@ -12,13 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        .font-serif {
-            font-family: 'Cormorant Garamond', serif;
-        }
-        .font-sans {
-            font-family: 'Inter', sans-serif;
-        }
+        /* --- Fontes Personalizadas --- */
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
 
+        /* --- Fundo e Cores Gerais --- */
         body {
             background-color: #111111;
             background-image: radial-gradient(circle at center, #1c1c1c 0%, #111111 70%);
@@ -26,15 +24,10 @@
             overflow-x: hidden; 
         }
 
-        .text-gold {
-            color: #D4AF37; 
-        }
-        .bg-gold {
-            background-color: #D4AF37;
-        }
-        .border-gold {
-            border-color: #D4AF37;
-        }
+        /* --- Paleta Dourada --- */
+        .text-gold { color: #D4AF37; }
+        .bg-gold { background-color: #D4AF37; }
+        .border-gold { border-color: #D4AF37; }
 
         .text-gold-gradient {
             background: linear-gradient(to right, #D4AF37, #FFD700, #D4AF37);
@@ -51,6 +44,7 @@
             background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.5), transparent);
         }
 
+        /* --- Animações de Scroll (Intersection Observer) --- */
         .reveal-hidden {
             opacity: 0;
             transform: translateY(30px);
@@ -71,6 +65,7 @@
             transform: scale(1);
         }
 
+        /* --- Animação de Transição de Tela --- */
         @keyframes fadeInContent {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -83,6 +78,7 @@
             box-shadow: 0 0 100px 50px rgba(212, 175, 55, 0.05);
         }
 
+        /* --- Estilo da Contagem Regressiva --- */
         .countdown-item {
             display: flex;
             flex-direction: column;
@@ -107,6 +103,7 @@
             color: #999;
         }
         
+        /* --- Botão de Música Flutuante --- */
         #music-toggle-btn {
             position: fixed;
             bottom: 20px;
@@ -124,9 +121,7 @@
             transition: all 0.3s ease;
             transform: scale(0); 
         }
-        #music-toggle-btn.visible {
-             transform: scale(1); 
-        }
+        #music-toggle-btn.visible { transform: scale(1); }
         #music-toggle-btn:hover {
             background-color: rgba(212, 175, 55, 1);
             transform: scale(1.1); 
@@ -141,12 +136,9 @@
             animation: pulse 1.5s infinite;
         }
 
-        #music-toggle-btn svg {
-            width: 24px;
-            height: 24px;
-            color: #111111;
-        }
+        #music-toggle-btn svg { width: 24px; height: 24px; color: #111111; }
 
+        /* --- Cards de Informação --- */
         .info-card {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -156,6 +148,7 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.08); 
         }
 
+        /* --- Partículas de Fundo --- */
         .particles-container {
             position: fixed;
             top: 0;
@@ -164,7 +157,6 @@
             height: 100%;
             pointer-events: none; 
             overflow: hidden; 
-            
             z-index: 0; 
         }
 
@@ -177,21 +169,10 @@
         }
 
         @keyframes floatUp {
-            0% {
-                transform: translateY(0) translateX(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.5; 
-                transform: scale(0.5);
-            }
-            80% {
-                opacity: 0.2; 
-            }
-            100% {
-                transform: translateY(-100vh) translateX(var(--x-drift, 0px)) scale(var(--s, 1));
-                opacity: 0;
-            }
+            0% { transform: translateY(0) translateX(0) scale(0); opacity: 0; }
+            10% { opacity: 0.5; transform: scale(0.5); }
+            80% { opacity: 0.2; }
+            100% { transform: translateY(-100vh) translateX(var(--x-drift, 0px)) scale(var(--s, 1)); opacity: 0; }
         }
         .particle:nth-child(1) { width: 5px; height: 5px; left: 10%; animation-delay: 0s; --s: 0.8; --x-drift: 20px;}
         .particle:nth-child(2) { width: 8px; height: 8px; left: 20%; animation-delay: 1.5s; --s: 1.2; --x-drift: -15px;}
@@ -221,14 +202,13 @@
         <div class="particle"></div>
     </div>
 
-    
-<section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center p-6 hero-glow relative transition-opacity duration-1000 z-10">
+    <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center p-6 hero-glow relative transition-opacity duration-1000 z-10">
         <div class="reveal-visible"> 
             <h2 class="font-sans text-xl md:text-2xl text-gray-400 tracking-wider">
                 Convite de Formatura CEPMG
             </h2>
             <h1 class="font-serif text-6xl md:text-8xl font-bold text-gold-gradient my-4">
-                Mª Eduarda e Mª Fernanda
+                Maria Eduarda e Maria Fernanda
             </h1>
             <p class="text-lg md:text-xl text-gray-300 mb-10">
                 Um capítulo se encerra, outro começa agora.
@@ -240,38 +220,37 @@
         </div>
     </section>
 
-    
-<div id="invite-content" class="hidden relative z-10">
+    <div id="invite-content" class="hidden relative z-10">
 
         <section id="intro" class="py-24 px-6">
             <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
                 <div class="reveal-scale-hidden md:col-span-2 flex justify-center"> 
                     <img 
                         src="https://cdn.discordapp.com/attachments/1414992639987552266/1440440051589841018/IMG_2999.jpg?ex=691e29d6&is=691cd856&hm=8166303af22d75e966275afddcba774bb714cd4eacb0073b127ef4bbfc4b123e&" 
-                        alt="Foto do Formando" 
+                        alt="Foto das Formandas" 
                         class="rounded-xl shadow-2xl w-full h-auto object-cover border-4 border-gold/30"
                         onerror="this.src='https://placehold.co/600x800/e0e0e0/333?text=Erro+ao+carregar+imagem';"
                     >
                 </div>
                 
                 <div class="reveal-hidden md:col-span-3">
-                    <h3 class="font-serif text-4xl md:text-5xl text-gold-gradient mb-6">Uma jornada de mil passos...</h3>
+                    <h3 class="font-serif text-4xl md:text-5xl text-gold-gradient mb-6">Nossa jornada de mil passos...</h3>
                     
-                    <p class="font-serif text-3xl text-gold mb-4">Mª Eduarda e Mª Fernanda</p>
+                    <p class="font-serif text-3xl text-gold mb-4">Maria Eduarda e Maria Fernanda</p>
                     <div class="text-lg text-gray-300 space-y-4 leading-relaxed">
                         <p>Queridos familiares e amigos,</p>
                         <p>
-                            Após anos de dedicação, desafios e incontáveis noites de estudo,
-                            chegou o momento de celebrar o fim deste capítulo e o início de uma nova e
-                            promissora jornada.
-                        </S>
-                        <p>
-                            Cada página virada, cada obstáculo superado, foi possível graças ao apoio,
-                            carinho e incentivo de pessoas especiais como você.
+                            Após anos de dedicação conjunta, desafios e incontáveis noites de estudo,
+                            chegou o momento de <strong>celebrarmos</strong> o fim deste capítulo e o início de uma nova e
+                            promissora jornada <strong>para nós</strong>.
                         </p>
                         <p>
-                            Será uma honra e uma alegria indescritível ter sua presença
-                            neste momento que não é apenas uma formatura, mas a celebração da vitória.
+                            Cada página virada, cada obstáculo superado, só foi possível graças ao apoio,
+                            carinho e incentivo de pessoas especiais como você, que fizeram parte da <strong>nossa história</strong>.
+                        </p>
+                        <p>
+                            Será uma honra e uma alegria indescritível <strong>termos</strong> sua presença
+                            neste momento que não é apenas uma formatura, mas a celebração da <strong>nossa</strong> vitória.
                         </p>
                     </div>
                 </div>
@@ -349,14 +328,14 @@
         <footer class="text-center py-12 px-6">
             <div class="reveal-hidden">
                 <p class="text-gray-500 mt-10">
-                    Com carinho, Mª Eduarda e Mª Fernanda | 2025
+                    Com carinho, Maria Eduarda e Maria Fernanda | 2025
                 </p>
             </div>
         </footer>
 
     </div> 
     
-    <audio id="bg-music" loop>
+    <audio id="bg-music" loop preload="auto">
         <source src="https://cdn.discordapp.com/attachments/1414992639987552266/1440077003158982746/Honor_And_Glory_-_Music4video_youtube.mp3?ex=691cd7b8&is=691b8638&hm=bc65c8dbf058060cbc167b2452d654d3ae3340d426eb7b51d3d88a7a4e291edc&" type="audio/mpeg">
     </audio>
 
@@ -372,7 +351,8 @@
         const inviteContent = document.getElementById('invite-content');
         const bgMusic = document.getElementById('bg-music');
         
-        bgMusic.volume = 0.1;
+        // Aumentei levemente o volume padrão, pois alguns celulares são baixos
+        bgMusic.volume = 0.3;
 
         const musicBtn = document.getElementById('music-toggle-btn');
         const musicIconPath = document.getElementById('music-path'); 
@@ -381,30 +361,39 @@
         const iconPlayPath = "M5.25 5.653c0-.856.917-1.362 1.625-.935L17.25 12l-10.375 6.282c-.708.427-1.625-.079-1.625-.935V5.653z";
         const iconPausePath = "M6 6h4v12H6zm8 0h4v12h-4z"; 
 
-        accessButton.addEventListener('click', () => {
-            heroSection.style.opacity = '0';
-            heroSection.style.pointerEvents = 'none';
-            
-            setTimeout(() => {
-                heroSection.style.display = 'none';
-                inviteContent.classList.remove('hidden');
-                inviteContent.classList.add('fade-in-content');
-            }, 1000); 
-
-            musicBtn.classList.add('visible');
-
+        // Tenta tocar a música. Se funcionar, muda ícone. Se der erro (bloqueio mobile), avisa no console.
+        function tryPlayMusic() {
             bgMusic.play().then(() => {
                 isPlaying = true;
                 musicIconPath.setAttribute('d', iconPausePath); 
                 musicBtn.classList.add('music-playing-pulse');
             }).catch(e => {
-                console.warn("Música falhou ao tocar automaticamente:", e);
+                console.warn("Bloqueio de autoplay:", e);
                 isPlaying = false;
                 musicIconPath.setAttribute('d', iconPlayPath); 
-                musicBtn.classList.remove('music-playing-pulse');
             });
+        }
+
+        accessButton.addEventListener('click', () => {
+            // 1. Tenta tocar a música PRIMEIRO (Crítico para iOS/Android)
+            tryPlayMusic();
+
+            // 2. Faz a animação visual
+            heroSection.style.opacity = '0';
+            heroSection.style.pointerEvents = 'none';
+            
+            // Mostra botão de música
+            musicBtn.classList.add('visible');
+
+            // Troca conteúdo após 1 segundo
+            setTimeout(() => {
+                heroSection.style.display = 'none';
+                inviteContent.classList.remove('hidden');
+                inviteContent.classList.add('fade-in-content');
+            }, 1000); 
         });
 
+        // Botão flutuante de controle de música
         musicBtn.addEventListener('click', () => {
             if (isPlaying) {
                 bgMusic.pause();
@@ -418,6 +407,7 @@
             isPlaying = !isPlaying; 
         });
 
+        // Contagem Regressiva
         const targetDate = new Date("Nov 27, 2025 19:00:00").getTime(); 
         const countdownTimer = setInterval(() => {
             const now = new Date().getTime();
@@ -438,6 +428,7 @@
             document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
         }, 1000);
 
+        // Intersection Observer para animação ao rolar a página
         const observerOptions = { root: null, threshold: 0.1 };
         const observerCallback = (entries, observer) => {
             entries.forEach(entry => {
